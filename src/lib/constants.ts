@@ -31,7 +31,8 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: "General" | "Services" | "AI & Tech" | "Pricing & Process";
+  category: string;
+  serviceNumber?: number;
 }
 
 export const SITE_CONFIG = {
@@ -548,74 +549,129 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQ_DATA: FAQItem[] = [
+  // 1. UI/UX & Digital Product Design
   {
-    id: "faq-1",
-    category: "General",
-    question: "What core services does STAILOR IT provide?",
+    id: "faq-1-1",
+    serviceNumber: 1,
+    category: "UI/UX & Digital Product Design",
+    question: "Do you provide design systems and Figma source files upon project completion?",
     answer:
-      "STAILOR IT provides full-spectrum digital growth and engineering services: Enterprise SEO, Digital Marketing & Paid Performance Media, Content Strategy, Custom Web Development (Next.js/React/Headless CMS), AI Automation & Workflow Integration, and 360° Forensic Digital Audits.",
+      "Yes, we deliver fully structured Figma source files, reusable component libraries, design tokens, and a complete design system for easy developer handoff.",
   },
   {
-    id: "faq-2",
-    category: "General",
-    question: "Do you primarily work with companies in the US and UK?",
+    id: "faq-1-2",
+    serviceNumber: 1,
+    category: "UI/UX & Digital Product Design",
+    question: "How do you handle user testing and prototype iteration for SaaS platforms?",
     answer:
-      "Yes. Our engineering frameworks, billing operations, legal agreements, and communication schedules are specifically optimized for B2B brands, enterprises, and high-growth startups based in the United States, United Kingdom, and international European markets.",
+      "We build interactive Figma prototypes and test user flows against targeted user personas to reduce user friction before code development starts.",
+  },
+
+  // 2. Custom Web Design & Development
+  {
+    id: "faq-2-1",
+    serviceNumber: 2,
+    category: "Custom Web Design & Development",
+    question: "Will our website be fully optimized for speed, mobile responsiveness, and SEO architecture?",
+    answer:
+      "Absolutely. We build clean, modular code following Google Core Web Vitals guidelines, ensuring fast load times, mobile responsiveness, and clean technical SEO markup.",
   },
   {
-    id: "faq-3",
-    category: "AI & Tech",
-    question: "How does the AI automation process work for our company?",
+    id: "faq-2-2",
+    serviceNumber: 2,
+    category: "Custom Web Design & Development",
+    question: "Can you integrate third-party APIs, CRMs (HubSpot/Salesforce), and custom payment gateways?",
     answer:
-      "We begin by identifying repetitive operational bottlenecks (e.g., manual lead data entry, invoice generation, customer inquiries, data extraction). We then build custom AI pipelines using OpenAI, Gemini, or Claude APIs combined with secure webhooks that connect seamlessly into your existing CRM, Slack, and accounting software.",
+      "Yes, we specialize in complex REST/GraphQL API integrations, connecting your web portal smoothly to Salesforce, HubSpot, Stripe, PayPal, or custom backend services.",
+  },
+
+  // 3. SEO & Local Search Optimization (GMB)
+  {
+    id: "faq-3-1",
+    serviceNumber: 3,
+    category: "SEO & Local Search Optimization (GMB)",
+    question: "How do you handle Google penalty recovery and technical SEO audits for existing websites?",
+    answer:
+      "We conduct comprehensive technical audits covering crawlability, indexation, backlink quality, and schema markup, then implement fixes to recover lost rankings and build organic authority.",
   },
   {
-    id: "faq-4",
-    category: "AI & Tech",
-    question: "Can you integrate AI workflows into our existing CRM (HubSpot, Salesforce)?",
+    id: "faq-3-2",
+    serviceNumber: 3,
+    category: "SEO & Local Search Optimization (GMB)",
+    question: "What specific actions do you take to rank a business in the Google Local 3-Pack?",
     answer:
-      "Absolutely. We specialize in bi-directional CRM integrations for HubSpot, Salesforce, Pipedrive, and Zoho. We configure custom fields, automated lead scoring algorithms, and instant AI trigger notifications for your sales team.",
+      "We optimize GMB profiles, build local GEO-targeted citations, manage review strategies, and create localized landing pages to ensure top map rankings.",
+  },
+
+  // 4. B2B Lead Generation & Data Scraping
+  {
+    id: "faq-4-1",
+    serviceNumber: 4,
+    category: "B2B Lead Generation & Data Scraping",
+    question: "How do you ensure the email lists generated via web scraping are 100% verified and compliant with GDPR/CAN-SPAM?",
+    answer:
+      "We run every lead through multi-step email verification tools (ZeroBounce/NeverBounce) to guarantee lower bounce rates (<3%) and comply strictly with CAN-SPAM and GDPR requirements.",
   },
   {
-    id: "faq-5",
-    category: "Services",
-    question: "How long does an enterprise web development project take?",
+    id: "faq-4-2",
+    serviceNumber: 4,
+    category: "B2B Lead Generation & Data Scraping",
+    question: "Can you target niche decision-makers like CTOs, VPs of Marketing, or Founders in specific regions?",
     answer:
-      "A high-converting MVP or modern marketing platform typically takes 4 to 6 weeks. Complex enterprise web applications with custom AI portals and multi-system integrations generally take 8 to 12 weeks. We operate in transparent 2-week sprints with live staging access.",
+      "Yes, we filter prospect data by exact parameters including job titles, industry codes (NAICS/SIC), company size, funding stage, and geographic location.",
+  },
+
+  // 5. Cold Email Outreach & Sales Pipeline Automation
+  {
+    id: "faq-5-1",
+    serviceNumber: 5,
+    category: "Cold Email Outreach & Sales Pipeline Automation",
+    question: "How do you protect our main business domain from being blacklisted during cold outreach?",
+    answer:
+      "We setup dedicated secondary domains with SPF, DKIM, DMARC records and undergo a 3 to 4 week warm-up process to protect your primary domain reputation.",
   },
   {
-    id: "faq-6",
-    category: "Services",
-    question: "Do you provide ongoing SEO and performance marketing retainers?",
+    id: "faq-5-2",
+    serviceNumber: 5,
+    category: "Cold Email Outreach & Sales Pipeline Automation",
+    question: "What is your typical response rate and booking strategy for cold campaigns?",
     answer:
-      "Yes. We offer continuous growth retainers covering ongoing technical SEO audits, semantic content production, backlink outreach, Google/LinkedIn Ads management, and continuous conversion rate optimization (CRO) split-testing.",
+      "By writing hyper-personalized, value-driven copy, we achieve industry-leading open rates (50%+) and click/reply rates that feed qualified meetings directly into your calendar.",
+  },
+
+  // 6. AI Automation & Workflow Integration
+  {
+    id: "faq-6-1",
+    serviceNumber: 6,
+    category: "AI Automation & Workflow Integration",
+    question: "What everyday business tasks can be automated using custom AI workflows?",
+    answer:
+      "We automate repetitive tasks like customer support triage, automated lead scoring, CRM data entry, document processing, and custom ChatGPT/OpenAI API integrations.",
   },
   {
-    id: "faq-7",
-    category: "Services",
-    question: "What is included in the Enterprise Digital Audit?",
+    id: "faq-6-2",
+    serviceNumber: 6,
+    category: "AI Automation & Workflow Integration",
+    question: "How secure is our proprietary business data when integrating AI tools?",
     answer:
-      "Our Digital Audit is an exhaustive forensic analysis of your website code quality, Lighthouse Core Web Vitals, SEO indexation, keyword gaps, UX conversion friction points, ad account spend efficiency, and security vulnerabilities. You receive an actionable 90-day technical remediation roadmap.",
+      "Security is paramount. We build private enterprise AI workflows using secure API endpoints so your proprietary data is never used to train public LLM models.",
+  },
+
+  // 7. Graphics Design & Corporate Branding
+  {
+    id: "faq-7-1",
+    serviceNumber: 7,
+    category: "Graphics Design & Corporate Branding",
+    question: "What deliverables are included in a full brand identity package?",
+    answer:
+      "You receive primary and secondary logo marks, color palettes, typography rules, brand style guides (PDF), brand assets for print/digital, and social media kits.",
   },
   {
-    id: "faq-8",
-    category: "AI & Tech",
-    question: "What modern technology stack do you use?",
+    id: "faq-7-2",
+    serviceNumber: 7,
+    category: "Graphics Design & Corporate Branding",
+    question: "Do we own 100% copyright of all visual assets designed by Stailor IT?",
     answer:
-      "We build on battle-tested, high-performance modern stacks: Next.js 15, React 19, TypeScript, Tailwind CSS, Node.js, Python (for AI data pipelines), PostgreSQL, Redis, Vercel, and AWS Cloud Infrastructure.",
-  },
-  {
-    id: "faq-9",
-    category: "Pricing & Process",
-    question: "Do you work with venture-backed startups as well as enterprise brands?",
-    answer:
-      "Yes. We partner with funded startups (Seed to Series B) seeking rapid product velocity and aggressive customer acquisition, as well as established mid-market and enterprise organizations looking to modernize legacy systems and automate workflows.",
-  },
-  {
-    id: "faq-10",
-    category: "Pricing & Process",
-    question: "How do we get started with STAILOR IT?",
-    answer:
-      "Click 'Book a Free Strategy Call' to schedule a 30-minute discovery session with our senior architects, or request a Digital Audit through our interactive form. We will analyze your scope and deliver a tailored roadmap and proposal within 48 hours.",
+      "Yes, upon final payment, complete commercial rights and full intellectual property ownership are transferred to your company.",
   },
 ];
