@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "STAILOR IT | Digital Growth & AI Automation Agency",
@@ -54,7 +67,15 @@ export const metadata: Metadata = {
     description:
       "Enterprise SEO, Custom Next.js Web Engineering, and AI Workflow Automations for US & UK B2B brands.",
     creator: "@stailor_it",
-    images: ["/og-image.jpg"],
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/logo.png", href: "/logo.png" },
+      { url: "/favicon.png", href: "/favicon.png" },
+    ],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
@@ -70,10 +91,18 @@ export default function RootLayout({
     name: "STAILOR IT",
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/logo.png`,
+    image: `${SITE_CONFIG.url}/logo.png`,
     description: SITE_CONFIG.description,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
-    areaServed: ["United States", "United Kingdom", "Worldwide"],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Tekatia, Fakirhat",
+      addressLocality: "Bagerhat",
+      postalCode: "9372",
+      addressCountry: "Bangladesh",
+    },
+    areaServed: ["Worldwide", "United States", "United Kingdom", "Bangladesh"],
     sameAs: [
       SITE_CONFIG.socials.linkedin,
       SITE_CONFIG.socials.twitter,
@@ -82,17 +111,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`dark ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-          rel="stylesheet"
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white font-sans">

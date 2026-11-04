@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG, SERVICES_DATA, NAV_LINKS } from "@/lib/constants";
 import { Sparkles, ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, CheckCircle2 } from "lucide-react";
 
@@ -18,9 +19,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/[0.08]">
           {/* Brand & Mission (4 cols) */}
           <div className="lg:col-span-4 flex flex-col space-y-6">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-accent-cyan flex items-center justify-center shadow-md shadow-primary/30">
-                <Sparkles className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-white/15 bg-white/5 flex items-center justify-center shadow-md shadow-primary/20">
+                <Image
+                  src="/logo.png"
+                  alt="Stailor IT Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-2xl font-extrabold tracking-tight text-white">
                 STAILOR<span className="text-accent-cyan ml-0.5">IT</span>
@@ -101,14 +108,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
           {/* Global Operations & Contact (3 cols) */}
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Global Headquarters
+              Headquarters & Contact
             </h4>
             <div className="space-y-3 text-xs text-muted-foreground">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-accent-cyan shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-white block font-medium">New York / London Hubs</strong>
-                  Serving Clients Nationwide across US, UK & Europe
+                  <strong className="text-white block font-medium">Stailor IT Headquarters</strong>
+                  Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -119,7 +126,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-accent-cyan shrink-0" />
-                <span>{SITE_CONFIG.phone}</span>
+                <a href={`tel:${SITE_CONFIG.phone}`} className="hover:text-white transition-colors">
+                  {SITE_CONFIG.phone}
+                </a>
               </div>
             </div>
 

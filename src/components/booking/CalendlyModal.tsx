@@ -109,6 +109,9 @@ export const CalendlyModal: React.FC<CalendlyModalProps> = ({ isOpen, onClose })
                   onChange={(e) => setSelectedTimezone(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl bg-[#040812] border border-white/15 text-white text-xs focus:outline-none focus:border-accent-cyan"
                 >
+                  <option value="Bangladesh Time (BST / UTC+6)">
+                    Bangladesh Time (BST / UTC+6)
+                  </option>
                   <option value="Eastern Time (US & Canada - EST)">
                     Eastern Time (US & Canada - EST)
                   </option>

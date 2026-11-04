@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { Sparkles, X, Send, Bot, User, ArrowUpRight, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SITE_CONFIG } from "@/lib/constants";
 
 interface Message {
   id: string;
@@ -77,9 +79,12 @@ export const AIChatWidget: React.FC<AIChatWidgetProps> = ({ onOpenBooking, onOpe
       } else if (lower.includes("seo") || lower.includes("audit") || lower.includes("traffic")) {
         reply = "We provide a complimentary 360° forensic audit of your technical SEO, Core Web Vitals, and conversion funnel with a 90-day actionable roadmap.";
         action = { type: "audit", label: "Request Free Digital Audit" };
+      } else if (lower.includes("contact") || lower.includes("email") || lower.includes("phone") || lower.includes("address") || lower.includes("location") || lower.includes("headquarter")) {
+        reply = `You can reach Stailor IT directly via Phone/WhatsApp at ${SITE_CONFIG.phone}, Email at ${SITE_CONFIG.email}, or visit our headquarters at ${SITE_CONFIG.address}.`;
+        action = { type: "booking", label: "Schedule Direct Call" };
       } else if (lower.includes("book") || lower.includes("call") || lower.includes("meet")) {
-        reply = "Let's get your session scheduled with our Principal Technical Architect. Choose a slot that works best for your US or UK timezone.";
-        action = { type: "booking", label: "Open Calendly Booking" };
+        reply = "Let's get your session scheduled with our Principal Technical Architect. Choose a slot that works best for your timezone.";
+        action = { type: "booking", label: "Open Strategy Booking" };
       }
 
       setMessages((prev) => [
@@ -103,8 +108,14 @@ export const AIChatWidget: React.FC<AIChatWidgetProps> = ({ onOpenBooking, onOpe
           {/* Header */}
           <div className="p-4 bg-gradient-to-r from-primary/20 via-accent-cyan/10 to-transparent border-b border-white/10 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-accent-cyan flex items-center justify-center text-white shadow-md shadow-primary/30">
-                <Bot className="w-4 h-4" />
+              <div className="relative w-8 h-8 rounded-xl overflow-hidden border border-white/15 bg-white/5 flex items-center justify-center shadow-md shadow-primary/20 shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Stailor IT Logo"
+                  width={32}
+                  height={32}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white flex items-center gap-1.5">

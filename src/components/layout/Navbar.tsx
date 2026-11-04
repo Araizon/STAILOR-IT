@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
@@ -140,10 +141,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenAudit }) =>
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2.5 group shrink-0"
+            className="flex items-center gap-3 group shrink-0"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-accent-cyan flex items-center justify-center shadow-md shadow-primary/30 group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5 text-white animate-pulse" />
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-white/15 bg-white/5 flex items-center justify-center shadow-md shadow-primary/20 group-hover:scale-105 transition-transform">
+              <Image
+                src="/logo.png"
+                alt="Stailor IT Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-white flex items-center">
@@ -347,10 +355,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenAudit }) =>
                 className="inline-flex items-center justify-center gap-2 text-xs text-muted-foreground hover:text-accent-cyan transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-accent-cyan" />
-                <span>US/UK Hotline: {SITE_CONFIG.phone}</span>
+                <span>Hotline: {SITE_CONFIG.phone}</span>
+              </a>
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="inline-flex items-center justify-center gap-2 text-xs text-muted-foreground hover:text-accent-cyan transition-colors"
+              >
+                <Mail className="w-3.5 h-3.5 text-accent-cyan" />
+                <span>{SITE_CONFIG.email}</span>
               </a>
               <span className="text-[10px] text-slate-500">
-                24-Hour SLA • Guaranteed Milestone Escrow • US & UK Timezones
+                Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh
               </span>
             </div>
           </div>

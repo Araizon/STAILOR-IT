@@ -40,10 +40,11 @@ export const SITE_CONFIG = {
   tagline: "Tailoring Next-Gen Digital Growth & Intelligent IT Solutions",
   url: "https://stailor.it",
   description:
-    "STAILOR IT is a premier US & UK-focused IT agency delivering end-to-end SEO, performance marketing, custom AI automations, and enterprise web engineering to maximize ROI and scale revenue.",
-  phone: "+1 (555) 349-8290",
-  email: "hello@stailor.it",
-  locations: ["New York, USA", "London, UK", "Global Remote Hub"],
+    "STAILOR IT is a premier digital growth agency delivering end-to-end SEO, performance marketing, custom AI automations, and enterprise web engineering to maximize ROI and scale revenue.",
+  phone: "+8801915171616",
+  email: "stailor.bd@gmail.com",
+  address: "Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh",
+  locations: ["Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh", "Global Remote Hub"],
   socials: {
     linkedin: "https://linkedin.com/company/stailor-it",
     twitter: "https://twitter.com/stailor_it",

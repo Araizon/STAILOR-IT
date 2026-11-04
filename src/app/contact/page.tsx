@@ -29,7 +29,7 @@ export default function ContactPage() {
             badgeVariant="cyan"
             title="Let&apos;s Discuss Your"
             gradientWord="Digital Roadmap"
-            description="Whether you require an immediate sprint kickoff or an architectural consultation, our US & UK leadership team is ready to connect."
+            description="Whether you require an immediate sprint kickoff or an architectural consultation, our Stailor IT leadership team is ready to connect."
             align="center"
             className="mb-16"
           />
@@ -58,16 +58,18 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
                   <Phone className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-white block">US / UK Direct Line</span>
-                    <span>{SITE_CONFIG.phone}</span>
+                    <span className="font-bold text-white block">Direct Phone & WhatsApp</span>
+                    <a href={`tel:${SITE_CONFIG.phone}`} className="text-accent-cyan hover:underline">
+                      {SITE_CONFIG.phone}
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
                   <MapPin className="w-5 h-5 text-accent-cyan shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-white block">Operational Hubs</span>
-                    <span>New York (EST), London (GMT) & Global Remote</span>
+                    <span className="font-bold text-white block">Headquarters Address</span>
+                    <span className="text-slate-200">Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh</span>
                   </div>
                 </div>
               </div>
