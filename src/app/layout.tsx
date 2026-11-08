@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "STAILOR IT | Digital Growth & AI Automation Agency",
     description:
       "Enterprise SEO, Custom Next.js Web Engineering, and AI Workflow Automations for US & UK B2B brands.",
-    creator: "@stailor_it",
+    creator: "@STailorItLTD",
     images: ["/logo.png"],
   },
   icons: {
@@ -104,9 +104,11 @@ export default function RootLayout({
     },
     areaServed: ["Worldwide", "United States", "United Kingdom", "Bangladesh"],
     sameAs: [
-      SITE_CONFIG.socials.linkedin,
+      SITE_CONFIG.socials.facebook,
+      SITE_CONFIG.socials.youtube,
       SITE_CONFIG.socials.twitter,
-      SITE_CONFIG.socials.github,
+      SITE_CONFIG.socials.linkedin,
+      SITE_CONFIG.socials.instagram,
     ],
   };
 

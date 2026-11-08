@@ -46,11 +46,41 @@ export const SITE_CONFIG = {
   address: "Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh",
   locations: ["Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh", "Global Remote Hub"],
   socials: {
-    linkedin: "https://linkedin.com/company/stailor-it",
-    twitter: "https://twitter.com/stailor_it",
-    github: "https://github.com/stailor-it",
+    facebook: "https://www.facebook.com/profile.php?id=61594932877988",
+    youtube: "https://www.youtube.com/@stailorit",
+    twitter: "https://www.x.com/STailorItLTD/",
+    linkedin: "https://www.linkedin.com/company/stailor-it/",
+    instagram: "https://www.instagram.com/stailoritltd/",
   },
 };
+
+export const SOCIAL_LINKS = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61594932877988",
+    key: "facebook",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@stailorit",
+    key: "youtube",
+  },
+  {
+    name: "X (Twitter)",
+    href: "https://www.x.com/STailorItLTD/",
+    key: "twitter",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/stailor-it/",
+    key: "linkedin",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/stailoritltd/",
+    key: "instagram",
+  },
+];
 
 export const NAV_LINKS = [
   { name: "Services", href: "/#services" },

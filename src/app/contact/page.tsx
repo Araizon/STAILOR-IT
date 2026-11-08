@@ -8,8 +8,53 @@ import { Button } from "@/components/ui/Button";
 import { CalendlyModal } from "@/components/booking/CalendlyModal";
 import { ConsultationForm } from "@/components/forms/ConsultationForm";
 import { AIChatWidget } from "@/components/chat/AIChatWidget";
-import { Mail, Phone, MapPin, Clock, ShieldCheck, ArrowUpRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  ArrowUpRight,
+  Facebook,
+  Youtube,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+
+const contactSocials = [
+  {
+    name: "Facebook",
+    href: SITE_CONFIG.socials.facebook,
+    icon: Facebook,
+    hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:bg-[#1877F2]/10",
+  },
+  {
+    name: "YouTube",
+    href: SITE_CONFIG.socials.youtube,
+    icon: Youtube,
+    hoverClass: "hover:text-[#FF0000] hover:border-[#FF0000]/40 hover:bg-[#FF0000]/10",
+  },
+  {
+    name: "X (Twitter)",
+    href: SITE_CONFIG.socials.twitter,
+    icon: Twitter,
+    hoverClass: "hover:text-white hover:border-white/40 hover:bg-white/10",
+  },
+  {
+    name: "LinkedIn",
+    href: SITE_CONFIG.socials.linkedin,
+    icon: Linkedin,
+    hoverClass: "hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10",
+  },
+  {
+    name: "Instagram",
+    href: SITE_CONFIG.socials.instagram,
+    icon: Instagram,
+    hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10",
+  },
+];
 
 export default function ContactPage() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -71,6 +116,31 @@ export default function ContactPage() {
                     <span className="font-bold text-white block">Headquarters Address</span>
                     <span className="text-slate-200">Tekatia, Fakirhat, Bagerhat - 9372, Bangladesh</span>
                   </div>
+                </div>
+              </div>
+
+              {/* Social Channels */}
+              <div className="pt-2">
+                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-3">
+                  Connect on Social Media
+                </span>
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  {contactSocials.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Follow STAILOR IT on ${item.name}`}
+                        title={item.name}
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 bg-white/[0.04] border border-white/10 text-slate-300 hover:scale-105 hover:-translate-y-0.5 ${item.hoverClass}`}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 

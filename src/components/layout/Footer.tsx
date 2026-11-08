@@ -2,12 +2,64 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SITE_CONFIG, SERVICES_DATA, NAV_LINKS } from "@/lib/constants";
-import { Sparkles, ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, CheckCircle2 } from "lucide-react";
+import {
+  Sparkles,
+  ArrowUpRight,
+  Mail,
+  Phone,
+  MapPin,
+  ShieldCheck,
+  CheckCircle2,
+  Facebook,
+  Youtube,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface FooterProps {
   onOpenBooking?: () => void;
   onOpenAudit?: () => void;
 }
+
+const socialItems = [
+  {
+    name: "Facebook",
+    href: SITE_CONFIG.socials.facebook,
+    icon: Facebook,
+    hoverClass:
+      "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:bg-[#1877F2]/10 hover:shadow-lg hover:shadow-[#1877F2]/20",
+  },
+  {
+    name: "YouTube",
+    href: SITE_CONFIG.socials.youtube,
+    icon: Youtube,
+    hoverClass:
+      "hover:text-[#FF0000] hover:border-[#FF0000]/40 hover:bg-[#FF0000]/10 hover:shadow-lg hover:shadow-[#FF0000]/20",
+  },
+  {
+    name: "X (Twitter)",
+    href: SITE_CONFIG.socials.twitter,
+    icon: Twitter,
+    hoverClass:
+      "hover:text-white hover:border-white/40 hover:bg-white/10 hover:shadow-lg hover:shadow-white/20",
+  },
+  {
+    name: "LinkedIn",
+    href: SITE_CONFIG.socials.linkedin,
+    icon: Linkedin,
+    hoverClass:
+      "hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10 hover:shadow-lg hover:shadow-[#0A66C2]/20",
+  },
+  {
+    name: "Instagram",
+    href: SITE_CONFIG.socials.instagram,
+    icon: Instagram,
+    hoverClass:
+      "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10 hover:shadow-lg hover:shadow-[#E4405F]/20",
+  },
+];
 
 export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) => {
   return (
@@ -46,6 +98,36 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
               <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <ShieldCheck className="w-4 h-4 text-accent-cyan" />
                 <span>Enterprise SOC-2 Type II & GDPR Compliant</span>
+              </div>
+            </div>
+
+            {/* Social Media Channels */}
+            <div className="pt-2">
+              <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-3">
+                Official Channels
+              </span>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                {socialItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Follow STAILOR IT on ${item.name}`}
+                      title={item.name}
+                      className={cn(
+                        "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
+                        "bg-white/[0.04] border border-white/10 text-slate-300",
+                        "hover:scale-105 hover:-translate-y-0.5",
+                        item.hoverClass
+                      )}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -145,9 +227,38 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} STAILOR IT Inc. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-muted-foreground">
+          <p className="order-2 md:order-1 text-center md:text-left">
+            © {new Date().getFullYear()} STAILOR IT Inc. All rights reserved.
+          </p>
+
+          {/* Social Icons Bar at the very bottom */}
+          <div className="order-1 md:order-2 flex items-center gap-2">
+            <span className="text-[11px] text-slate-400 font-medium mr-1 hidden sm:inline">Follow us:</span>
+            {socialItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={`bottom-${item.name}`}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`STAILOR IT on ${item.name}`}
+                  title={item.name}
+                  className={cn(
+                    "w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200",
+                    "bg-white/[0.04] border border-white/10 text-slate-300",
+                    "hover:scale-110",
+                    item.hoverClass
+                  )}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="order-3 flex items-center gap-5 flex-wrap justify-center">
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
@@ -157,7 +268,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking, onOpenAudit }) =>
             <Link href="/security" className="hover:text-white transition-colors">
               Security Overview
             </Link>
-            <span className="text-white/40">US / UK B2B Standard</span>
+            <span className="text-white/40 hidden lg:inline">US / UK B2B Standard</span>
           </div>
         </div>
       </div>
